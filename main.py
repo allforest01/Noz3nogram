@@ -1,5 +1,4 @@
 import game, solver
-import numpy as np
 
 if __name__ == "__main__":
 
@@ -41,7 +40,7 @@ if __name__ == "__main__":
     puzz = solver.nonograms(rowMeta, colMeta)
     for i in range(picross.currentHeight):
         for j in range(picross.currentWidth):
-            print('x' if puzz[i][j] == 1 else '-', end=' ')
+            print('x' if puzz[i][j] else '-', end=' ')
         print()
     
     for i in range(picross.currentHeight):
