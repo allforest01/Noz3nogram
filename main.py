@@ -1,5 +1,4 @@
-import game
-from picross_solver import picross_solver
+import game, solver
 import numpy as np
 
 if __name__ == "__main__":
@@ -39,13 +38,10 @@ if __name__ == "__main__":
 
     print()
     print("SOLVED:")
-    puzz = np.full((picross.currentWidth, picross.currentHeight), -1)
-    picross_solver.solve(rowMeta, colMeta, puzz)
-    puzz = puzz.tolist()
+    puzz = solver.nonograms(rowMeta, colMeta)
     for i in range(picross.currentHeight):
         for j in range(picross.currentWidth):
-            state = puzz[i][j]
-            print('x' if state == 1 else '-', end=' ')
+            print('x' if puzz[i][j] == 1 else '-', end=' ')
         print()
     
     for i in range(picross.currentHeight):
